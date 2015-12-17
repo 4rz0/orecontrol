@@ -11,8 +11,11 @@ public class OreGenEventHandler
     @SubscribeEvent
     public void onOreGenMinable(OreGenEvent.GenerateMinable event)
     {
-        //OreControl.logger.info("Type: " + event.type.toString() + (event.generator != null ? " generator: " + event.generator.toString() : ""));
-        //OreControl.logger.info("Type: " + event.type + " worldX: " + event.worldX + " worldZ: " + event.worldZ);
+        if (Configs.verbose == true)
+        {
+        OreControl.logger.info("Type: " + event.type.toString() + (event.generator != null ? " generator: " + event.generator.toString() : ""));
+        OreControl.logger.info("Type: " + event.type + " worldX: " + event.worldX + " worldZ: " + event.worldZ);
+        }
 
         if (event.type == EventType.CUSTOM)
         {
