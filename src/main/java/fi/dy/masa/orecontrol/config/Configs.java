@@ -28,6 +28,8 @@ public class Configs
     public static boolean disableNetherQuartz;
     public static boolean disableEmerald;
     public static boolean disableSilverfish;
+    
+    public static boolean verbose;
 
 
     public static void loadConfigs(File configFile)
@@ -107,6 +109,12 @@ public class Configs
         prop = conf.get(category, "disableSilverfish", false);
         prop.comment = "Disables Silverfish block (= Monster Egg) generation (in Extreme Hills biomes).";
         disableSilverfish = prop.getBoolean() || disableAllVanillaGeneration;
+
+		category = "verbose";
+	    prop = conf.get(category, "verbose", false);
+        prop.comment = "Enables event verbose mode (beware of log spam!).";
+        verbose = prop.getBoolean();
+
 
         if (conf.hasChanged() == true)
         {
